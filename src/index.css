@@ -1,0 +1,69 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+h1 {
+  color: #3c3c3c;
+  
+  }
+
+#current-market {
+  background-color: #d51e1d;
+}
+
+#v-title {
+  font-size: 1.4rem;
+}
+
+.logo {
+  width: 60%;
+  height: 225px;
+  background-color: white;
+}
+
+.div-logo {
+  height: 10%;
+}
+
+#bitcoin-market {
+  background-color: #f2a900;
+}
+
+#ethereum-market {
+  background-color: #3c3c3d;
+}
+
+#chainlink-market {
+  background-color: #0078e9;
+}
+
+#video-links {
+  padding-top: 10px;
+  font-size: 1.2rem;
+  text-align: center;
+}
+#video_thumb {
+  padding-left: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#latest-vids {
+  padding-bottom: 30px;
+}
+
+#video-list {
+  display: flex;
+  flex-direction: row;
+}
+
