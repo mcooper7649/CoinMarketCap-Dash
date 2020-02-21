@@ -1,6 +1,5 @@
 import React from 'react';
-import Header from './Header';
-import {Switch, Link, Route} from 'react-router-dom'
+
 
 const VideoReelEth = (props) => {
 //   console.log(props.allBeers)
@@ -17,10 +16,7 @@ const VideoReelEth = (props) => {
     
     return links.map(eachVid  =>{
         return (
-        
-            
-
-                <a href={'https://www.youtube.com/watch?v=' + eachVid.id.videoId}> <img id="video_thumb" src={eachVid.snippet.thumbnails.default.url} alt="the Vid" /> </a>
+                <a href={'https://www.youtube.com/watch?v=' + eachVid.id.videoId}> <img id="video_thumb" src={eachVid.snippet.thumbnails.default.url} alt="the Vid"/> </a>
             
         );
     })

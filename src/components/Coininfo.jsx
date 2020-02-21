@@ -1,13 +1,19 @@
 import React from 'react';
-import { Switch, Route, Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
+
 import VideoList from './VideoList'
-import HomePage from './HomePage';
 import Videoreel from './Videoreel'
 import VideoReelEth from './VideoReelEth'
 import VideoReelLink from './VideoReelLink'
 
+
+
+
+
 function Coininfo(props) {
     return (
+        
+
         <div className="main-content-inner">
                 {/* <!-- sales report area start --> */}
                 <div className="sales-report-area mt-5 mb-5">
@@ -29,13 +35,17 @@ function Coininfo(props) {
                                 
                                 
                                 {/* <canvas id="coin_sales1" height="100">{props.links}</canvas> */}
-                                <div id="video-list">
+                                {/* <div id="video-list">
                                 <Videoreel id="video-list"{...props}
                                 links={props.links}
                                 btclinks={props.btclinks}
                                 ethlinks={props.ethlinks}
                                 linklinks={props.linklinks}
                                  />
+                                 </div> */}
+                                 <div className="button-wrap">
+                                    <Link to="/more-info-btc"><button type="button" data-toggle="modal" data-target="#exampleModalCenter"  className="btn btn-flat btn-dark btn-lg btn-block"><h1 id="btn-white">More Information</h1></button></Link> 
+                                            <h1 id="btn-white">More Information</h1>
                                  </div>
                             </div>
                         </div>
@@ -53,20 +63,24 @@ function Coininfo(props) {
                                     </div>
                                 </div>
                                 {/* <canvas id="coin_sales2" height="100"></canvas> */}
-                                <div id="video-list">
+                                {/* <div id="video-list">
                                 <VideoReelEth id="video-list"{...props}
                                 links={props.links}
                                 btclinks={props.btclinks}
                                 ethlinks={props.ethlinks}
                                 linklinks={props.linklinks}
                                  />
+                                 </div> */}
+                                 <div className="button-wrap">
+                                 <Link to="/more-info-eth"> <button type="button" data-toggle="modal" data-target="#exampleModalCenter"  className="btn btn-flat btn-dark btn-lg btn-block"><h1 id="btn-white">More Information</h1></button></Link>
+                                            <h1 id="btn-white">More Information</h1>
                                  </div>
                             </div>
                         </div>
                         <div className="col-md-4">
                             <div className="single-report">
                                 <div className="s-report-inner pr--20 pt--30 mb-3">
-                                    <div className="icon"><img src="https://pbs.twimg.com/profile_images/1030475757892579334/qvSHhRyC_400x400.jpg"></img></div>
+                                    <div className="icon"><img src="https://pbs.twimg.com/profile_images/1030475757892579334/qvSHhRyC_400x400.jpg" alt="link"></img></div>
                                     <div className="s-report-title d-flex justify-content-between">
                                       <h4 className="header-title mb-0">{props.linkListingData.name}</h4>
                                         <p>24 H</p>
@@ -77,13 +91,17 @@ function Coininfo(props) {
                                     </div>
                                 </div>
                                 {/* <canvas id="coin_sales3" height="100"></canvas> */}
-                                <div id="video-list">
+                                {/* <div id="video-list">
                                 <VideoReelLink id="video-list"{...props}
                                 links={props.links}
                                 btclinks={props.btclinks}
                                 ethlinks={props.ethlinks}
                                 linklinks={props.linklinks}
                                  />
+                                 </div> */}
+                                 <div className="button-wrap">
+                                 <Link to="/more-info-link"> <button type="button" data-toggle="modal" data-target="#exampleModalCenter"  className="btn btn-flat btn-dark btn-lg btn-block"><h1 id="btn-white">More Information</h1></button></Link>
+                                            <h1 id="btn-white">More Information</h1>
                                  </div>
                             </div>
                         </div>
@@ -97,10 +115,10 @@ function Coininfo(props) {
                             <div className="card-body">
                                 <div className="d-flex justify-content-between align-items-center"  id="latest-vids">
                                     <h4 className="header-title mb-0">Latest Videos</h4>
-                                    <div class="search-box pull-left">
+                                    <div className="search-box pull-left">
                                         <form action="#">
                                             <input type="text" name="search" placeholder="Search..." required />
-                                            <i class="ti-search"></i>
+                                            <i className="ti-search"></i>
                                         </form>
                                     </div>
                                 </div>
@@ -128,7 +146,6 @@ function Coininfo(props) {
                         </div>
                     </div>
                 </div>
-                
                 
         </div>
     );

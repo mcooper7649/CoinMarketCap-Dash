@@ -1,6 +1,5 @@
 import React from 'react';
-import Header from './Header';
-import {Switch, Link, Route} from 'react-router-dom'
+
 
 const Videoreel = (props) => {
 //   console.log(props.allBeers)
@@ -9,13 +8,12 @@ const Videoreel = (props) => {
 //   let beerName = props.match.params.beerName;
 //   let allBeers = props.allBeers;
 
-console.log(props.btclinks[0])
+// console.log(props.btclinks[0])
 
   const showVids = () =>{
-
-    let links = props.btclinks
     
-    return links.map(eachVid  =>{
+    let links = props.btclinks
+    return links.map(eachVid =>{
         return (
         
             

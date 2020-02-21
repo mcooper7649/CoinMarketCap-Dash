@@ -1,6 +1,5 @@
 import React from 'react';
-import Header from './Header';
-import {Switch, Link, Route} from 'react-router-dom'
+
 
 const VideoList = (props) => {
 //   console.log(props.allBeers)
