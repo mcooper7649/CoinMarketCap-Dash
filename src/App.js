@@ -2,13 +2,17 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Switch, Route } from 'react-router-dom';
 import Coininfo from './components/Coininfo'
+import Btcinfo from './components/Btcinfo'
+import Ethinfo from './components/Ethinfo'
+import Linkinfo from './components/Linkinfo'
 
 
 var api_key = {
   key: "ca1a9c15-b98e-41dd-a03d-45b279920f4d",
   // youtube: "AIzaSyBFh1Qe1Yc0dkpce-A_ZBWvbPa_z6-VpIA",
   // youtube: "AIzaSyA5WEFxIq4Y5pbiifVB3VQVIlAptmMfgTw"
-  youtube: "AIzaSyDIMSwQ_L5FJFqk9RrMZpxvwAdMzaUxqKA"
+  // youtube: "AIzaSyDIMSwQ_L5FJFqk9RrMZpxvwAdMzaUxqKA"
+  youtube: "AIzaSyDfAZ83X5Ro-JyiQlO7i8lFUVf1kuSAzsg"
 }
 
 
@@ -69,7 +73,7 @@ getBtcListingInfo = () => {
     
     let btc = response.data.data[0]
     let eth = response.data.data[1]
-    let link = response.data.data[12]
+    let link = response.data.data[13]
 
     this.setState({
       btcListingData: btc,
@@ -216,7 +220,7 @@ componentDidMount = () => {
             />
 
 <Route path="/more-info-btc" render={props => 
-              <Coininfo {...this.props} 
+              <Btcinfo {...this.props} 
               btcListingData={this.state.btcListingData}
               btcListingUSD={this.state.btcListingUSD}
               btcListingUSDPrice={this.state.btcListingUSDPrice}
@@ -243,7 +247,7 @@ componentDidMount = () => {
             />
 
 <Route path="/more-info-eth" render={props => 
-              <Coininfo {...this.props} 
+              <Ethinfo {...this.props} 
               btcListingData={this.state.btcListingData}
               btcListingUSD={this.state.btcListingUSD}
               btcListingUSDPrice={this.state.btcListingUSDPrice}
@@ -270,7 +274,7 @@ componentDidMount = () => {
             />
 
 <Route path="/more-info-link" render={props => 
-              <Coininfo {...this.props} 
+              <Linkinfo {...this.props} 
               btcListingData={this.state.btcListingData}
               btcListingUSD={this.state.btcListingUSD}
               btcListingUSDPrice={this.state.btcListingUSDPrice}

@@ -6,13 +6,12 @@ import Videoreel from './Videoreel'
 import VideoReelEth from './VideoReelEth'
 import VideoReelLink from './VideoReelLink'
 
-import Btcinfo from './Btcinfo'
 
 
 
 
 
-function Coininfo(props) {
+function Linkinfo(props) {
     return (
         
 
@@ -102,7 +101,7 @@ function Coininfo(props) {
                                  />
                                  </div> */}
                                  <div className="button-wrap">
-                                 <Link to="/more-info-link"> <button type="button" data-toggle="modal" data-target="#exampleModalCenter"  className="btn btn-flat btn-dark btn-lg btn-block"><h1 id="btn-white">More Information</h1></button></Link>
+                                 <Link to="/"> <button type="button" data-toggle="modal" data-target="#exampleModalCenter"  className="btn btn-flat btn-dark btn-lg btn-block"><h1 id="btn-white">Less Information</h1></button></Link>
                                             
                                  </div>
                             </div>
@@ -153,4 +152,4 @@ function Coininfo(props) {
     );
 }
 
-export default Coininfo;
+export default Linkinfo;
