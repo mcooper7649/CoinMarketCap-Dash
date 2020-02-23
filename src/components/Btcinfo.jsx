@@ -26,12 +26,30 @@ function Btcinfo(props) {
                                     <div className="s-report-title d-flex justify-content-between">
                                         <h4 className="header-title mb-0">{props.btcListingData.name}</h4>
                                         <p>24 H</p>
+                                        
                                     </div>
                                     <div className="d-flex justify-content-between pb-2">
                                         <h2>${props.btcListingUSDPrice}</h2>
                                         <span>{props.btcListingUSDPrice24h}%</span>
+                                       
+                                       
+                                        
                                         
                                     </div>
+                                </div>
+
+                                <div className="s-report-title d-flex justify-content-between">
+                                       
+                                       <p>Rank</p> <p>{props.btcListingData.cmc_rank}</p>
+                                </div>
+                                <div className="s-report-title d-flex justify-content-between">
+                                       <p>Circulating Supply</p> <p>{props.btcListingData.circulating_supply}</p>
+                                </div>
+                                <div className="s-report-title d-flex justify-content-between">
+                                        <p>Max Supply</p> <p>{props.btcListingData.max_supply}</p>
+                                </div>
+                                <div className="s-report-title d-flex justify-content-between">
+                                        <p>Market Symbol</p> <p>{props.btcListingData.symbol}</p>
                                 </div>
                                 
                                 

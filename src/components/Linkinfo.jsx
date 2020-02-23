@@ -91,6 +91,20 @@ function Linkinfo(props) {
                                         <span>{props.linkListingUSDPrice24h}%</span>
                                     </div>
                                 </div>
+
+                                <div className="s-report-title d-flex justify-content-between">
+                                       
+                                       <p>Rank</p> <p>{props.linkListingData.cmc_rank}</p>
+                                </div>
+                                <div className="s-report-title d-flex justify-content-between">
+                                       <p>Circulating Supply</p> <p>{props.linkListingData.circulating_supply}</p>
+                                </div>
+                                <div className="s-report-title d-flex justify-content-between">
+                                        <p>Max Supply</p> <p>{props.linkListingData.total_supply}</p>
+                                </div>
+                                <div className="s-report-title d-flex justify-content-between">
+                                        <p>Market Symbol</p> <p>{props.linkListingData.symbol}</p>
+                                </div>
                                 {/* <canvas id="coin_sales3" height="100"></canvas> */}
                                 {/* <div id="video-list">
                                 <VideoReelLink id="video-list"{...props}

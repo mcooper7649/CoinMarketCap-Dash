@@ -63,6 +63,20 @@ function Ethinfo(props) {
                                         <span>{props.ethListingUSDPrice24h}%</span>
                                     </div>
                                 </div>
+
+                                <div className="s-report-title d-flex justify-content-between">
+                                       
+                                       <p>Rank</p> <p>{props.ethListingData.cmc_rank}</p>
+                                </div>
+                                <div className="s-report-title d-flex justify-content-between">
+                                       <p>Circulating Supply</p> <p>{props.ethListingData.circulating_supply}</p>
+                                </div>
+                                <div className="s-report-title d-flex justify-content-between">
+                                        <p>Max Supply</p> <p>{props.ethListingData.total_supply}</p>
+                                </div>
+                                <div className="s-report-title d-flex justify-content-between">
+                                        <p>Market Symbol</p> <p>{props.ethListingData.symbol}</p>
+                                </div>
                                 {/* <canvas id="coin_sales2" height="100"></canvas> */}
                                 {/* <div id="video-list">
                                 <VideoReelEth id="video-list"{...props}
