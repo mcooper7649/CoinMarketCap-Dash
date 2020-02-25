@@ -116,9 +116,9 @@ function Coininfo(props) {
                         <div className="card">
                             <div className="card-body">
                                 <div className="d-flex justify-content-between align-items-center"  id="latest-vids">
-                                    <h4 className="header-title mb-0">Latest Videos</h4>
+                                    <h4 className="header-title mb-0">Latest Blockchain Videos</h4>
                                     <div className="search-box pull-left">
-                                        <form action="#">
+                                        <form action="onSubmit">
                                             <input type="text" name="search" placeholder="Search..." required />
                                             <i className="ti-search"></i>
                                         </form>

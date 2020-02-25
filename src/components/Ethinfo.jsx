@@ -66,16 +66,16 @@ function Ethinfo(props) {
 
                                 <div className="s-report-title d-flex justify-content-between">
                                        
-                                       <p>Rank</p> <p>{props.ethListingData.cmc_rank}</p>
+                                       <p id="box-details">Rank</p> <p id="box-details">{props.ethListingData.cmc_rank}</p>
                                 </div>
                                 <div className="s-report-title d-flex justify-content-between">
-                                       <p>Circulating Supply</p> <p>{props.ethListingData.circulating_supply}</p>
+                                       <p id="box-details">Circulating Supply</p> <p id="box-details">{props.ethListingData.circulating_supply}</p>
                                 </div>
                                 <div className="s-report-title d-flex justify-content-between">
-                                        <p>Max Supply</p> <p>{props.ethListingData.total_supply}</p>
+                                        <p id="box-details">Max Supply</p> <p id="box-details">{props.ethListingData.total_supply}</p>
                                 </div>
                                 <div className="s-report-title d-flex justify-content-between">
-                                        <p>Market Symbol</p> <p>{props.ethListingData.symbol}</p>
+                                        <p id="box-details">Market Symbol</p> <p id="box-details">{props.ethListingData.symbol}</p>
                                 </div>
                                 {/* <canvas id="coin_sales2" height="100"></canvas> */}
                                 {/* <div id="video-list">
@@ -129,7 +129,7 @@ function Ethinfo(props) {
                         <div className="card">
                             <div className="card-body">
                                 <div className="d-flex justify-content-between align-items-center"  id="latest-vids">
-                                    <h4 className="header-title mb-0">Latest Videos</h4>
+                                    <h4 className="header-title mb-0">Latest Ethereum Videos</h4>
                                     <div className="search-box pull-left">
                                         <form action="#">
                                             <input type="text" name="search" placeholder="Search..." required />
@@ -149,6 +149,11 @@ function Ethinfo(props) {
                                 <h4 className="header-title mb-0">Market Info</h4>
                                 <div id="coin_distribution">
                                     <ul>
+                                        <li className="info-list">Ethereum Market Cap: ${props.ethListingUSD.market_cap}</li>
+                                        <li className="info-list">Percentage Change last 1h: {props.ethListingUSD.percent_change_1h}%</li>
+                                        <li className="info-list">Percentage Change last 24h: {props.ethListingUSD.percent_change_24h}%</li>
+                                        <li className="info-list">Percentage Change last 7d: {props.ethListingUSD.percent_change_7d}%</li>
+                                        <hr></hr>
                                         <li className="info-list">Total Amount of CryptoCurrecies: {props.TotalCoinData.total_cryptocurrencies}</li>
                                         <li className="info-list">Active CryptoCurrencies: {props.TotalMarketCap.active_cryptocurrencies}</li>
                                         <li className="info-list">Total Exchanges: {props.TotalCoinData.total_exchanges}</li>

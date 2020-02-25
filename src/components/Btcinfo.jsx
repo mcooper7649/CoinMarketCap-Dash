@@ -40,16 +40,16 @@ function Btcinfo(props) {
 
                                 <div className="s-report-title d-flex justify-content-between">
                                        
-                                       <p>Rank</p> <p>{props.btcListingData.cmc_rank}</p>
+                                       <p id="box-details">Rank</p> <p id="box-details">{props.btcListingData.cmc_rank}</p>
                                 </div>
                                 <div className="s-report-title d-flex justify-content-between">
-                                       <p>Circulating Supply</p> <p>{props.btcListingData.circulating_supply}</p>
+                                       <p id="box-details">Circulating Supply</p> <p id="box-details">{props.btcListingData.circulating_supply}</p>
                                 </div>
                                 <div className="s-report-title d-flex justify-content-between">
-                                        <p>Max Supply</p> <p>{props.btcListingData.max_supply}</p>
+                                        <p id="box-details">Max Supply</p> <p id="box-details">{props.btcListingData.max_supply}</p>
                                 </div>
                                 <div className="s-report-title d-flex justify-content-between">
-                                        <p>Market Symbol</p> <p>{props.btcListingData.symbol}</p>
+                                        <p id="box-details">Market Symbol</p> <p id="box-details">{props.btcListingData.symbol}</p>
                                 </div>
                                 
                                 
@@ -133,7 +133,7 @@ function Btcinfo(props) {
                         <div className="card">
                             <div className="card-body">
                                 <div className="d-flex justify-content-between align-items-center"  id="latest-vids">
-                                    <h4 className="header-title mb-0">Latest Videos</h4>
+                                    <h4 className="header-title mb-0">Latest Bitcoin Videos</h4>
                                     <div className="search-box pull-left">
                                         <form action="#">
                                             <input type="text" name="search" placeholder="Search..." required />
@@ -153,6 +153,11 @@ function Btcinfo(props) {
                                 <h4 className="header-title mb-0">Market Info</h4>
                                 <div id="coin_distribution">
                                     <ul>
+                                        <li className="info-list">Bitcoin Market Cap: ${props.btcListingUSD.market_cap}</li>
+                                        <li className="info-list">Percentage Change last 1h: {props.btcListingUSD.percent_change_1h}%</li>
+                                        <li className="info-list">Percentage Change last 24h: {props.btcListingUSD.percent_change_24h}%</li>
+                                        <li className="info-list">Percentage Change last 7d: {props.btcListingUSD.percent_change_7d}%</li>
+                                        <hr></hr>
                                         <li className="info-list">Total Amount of CryptoCurrecies: {props.TotalCoinData.total_cryptocurrencies}</li>
                                         <li className="info-list">Active CryptoCurrencies: {props.TotalMarketCap.active_cryptocurrencies}</li>
                                         <li className="info-list">Total Exchanges: {props.TotalCoinData.total_exchanges}</li>

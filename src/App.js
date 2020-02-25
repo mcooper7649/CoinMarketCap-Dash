@@ -12,7 +12,8 @@ var api_key = {
   // youtube: "AIzaSyBFh1Qe1Yc0dkpce-A_ZBWvbPa_z6-VpIA",
   // youtube: "AIzaSyA5WEFxIq4Y5pbiifVB3VQVIlAptmMfgTw"
   // youtube: "AIzaSyDIMSwQ_L5FJFqk9RrMZpxvwAdMzaUxqKA"
-  youtube: "AIzaSyDfAZ83X5Ro-JyiQlO7i8lFUVf1kuSAzsg"
+  // youtube: "AIzaSyDfAZ83X5Ro-JyiQlO7i8lFUVf1kuSAzsg"
+  youtube: "AIzaSyCjERn1sw_DCK_gFleL4Ths9ECwqtXxMGA"
 }
 
 
@@ -54,7 +55,7 @@ class App extends Component {
   getBtcInfo = () => {
     axios.get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/map?CMC_PRO_API_KEY=' + api_key.key)
     .then(response => {
-      console.log(response.data.data)
+      // console.log(response.data.data)
       this.setState({
         TotalBtcData: response.data.data,
         ready: true,
@@ -69,11 +70,14 @@ class App extends Component {
 getBtcListingInfo = () => {
   axios.get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?CMC_PRO_API_KEY=' + api_key.key)
   .then(response => {
-    // console.log(response.data.data)
+    console.log(response.data.data)
     
-    let btc = response.data.data[0]
-    let eth = response.data.data[1]
-    let link = response.data.data[13]
+    const btc = response.data.data.find( ({ name }) => name === 'Bitcoin' );
+    // let eth = response.data.data[1]
+    // let link = response.data.data[12]
+    const eth = response.data.data.find( ({ name }) => name === 'Ethereum' );
+    const link = response.data.data.find( ({ name }) => name === 'Chainlink' );
+    // console.log(link)
 
     this.setState({
       btcListingData: btc,

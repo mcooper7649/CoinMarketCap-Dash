@@ -62,6 +62,14 @@ h1 {
   padding-bottom: 30px;
 }
 
+#video-style {
+    display: flex;
+    align-items: center;
+    padding: 25px 15px;
+    justify-content: space-between;
+}
+
+
 #video-list {
   display: flex;
   flex-direction: row;
@@ -75,5 +83,9 @@ h1 {
 
 #btn-white {
   color: white;
+}
+
+#box-details {
+  margin: 0 18px;
 }
 
