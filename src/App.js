@@ -5,15 +5,17 @@ import Coininfo from './components/Coininfo'
 import Btcinfo from './components/Btcinfo'
 import Ethinfo from './components/Ethinfo'
 import Linkinfo from './components/Linkinfo'
-
+import CoinDetails from './components/CoinDetails';
+// import Overlay from './components/Overlay';
+// import metismenu from 'metismenujs'
 
 var api_key = {
   key: "ca1a9c15-b98e-41dd-a03d-45b279920f4d",
-  // youtube: "AIzaSyBFh1Qe1Yc0dkpce-A_ZBWvbPa_z6-VpIA",
+  youtube: "AIzaSyBFh1Qe1Yc0dkpce-A_ZBWvbPa_z6-VpIA",
   // youtube: "AIzaSyA5WEFxIq4Y5pbiifVB3VQVIlAptmMfgTw"
   // youtube: "AIzaSyDIMSwQ_L5FJFqk9RrMZpxvwAdMzaUxqKA"
   // youtube: "AIzaSyDfAZ83X5Ro-JyiQlO7i8lFUVf1kuSAzsg"
-  youtube: "AIzaSyCjERn1sw_DCK_gFleL4Ths9ECwqtXxMGA"
+  // youtube: "AIzaSyCjERn1sw_DCK_gFleL4Ths9ECwqtXxMGA"
 }
 
 
@@ -179,25 +181,68 @@ componentDidMount = () => {
   this.getYoutubeEth()
   this.getYoutubeLink()
   
-  
+  // const mm = new MetisMenu("#menu");
 
 }
 
 
+// signUpLogIn = () => {
+//   //name = this.state.name & pass
+//   let name="Michael"
+//   // axios.post('https://ironrest.herokuapp.com/CoopersApp', {name}).then(res=>{
+//   //   console.log(res)
+//   // })
+
+//   axios.get(`https://ironrest.herokuapp.com/findOne/CoopersApp?name=Micahel`).then(res =>{
+//     console.log(res)
+//     axios.put(`https://ironrest.herokuapp.com/CoopersApp/${res.data._id}`, {puppies: Math.random()})
+//       .then(res=>console.log(res)).catch(err=>console.log(err))
+//   })
+
+// }
       
 
   render() {
     
     return (
+      
 
       <div>
+      {/* <Overlay /> */}
+      {/* <button onClick={this.signUpLogIn}>Sign Up / Log in</button> */}
        
-
+      {/* <Overlay /> */}
       
       <Switch>
+      {/* <Route exact path="/coin-details/:coininfo" render={props => 
+              <CoinDetails {...props} 
+              btcListingData={this.state.btcListingData}
+              btcListingUSD={this.state.btcListingUSD}
+              btcListingUSDPrice={this.state.btcListingUSDPrice}
+              btcListingUSDPrice24h={this.state.btcListingUSDPrice24h}
+              ethListingData={this.state.ethListingData}
+              ethListingUSD={this.state.ethListingUSD}
+              ethListingUSDPrice={this.state.ethListingUSDPrice}
+              ethListingUSDPrice24h={this.state.ethListingUSDPrice24h}
+              linkListingData={this.state.linkListingData}
+              linkListingUSD={this.state.linkListingUSD}
+              linkListingUSDPrice={this.state.linkListingUSDPrice}
+              linkListingUSDPrice24h={this.state.linkListingUSDPrice24h}
+              TotalCoinData={this.state.TotalCoinData}
+              TotalMarketCap={this.state.TotalCoinData}
+              TotalCryptoCurrencies={this.state.TotalCryptoCurrencies}
+              last_updated={this.state.last_updated}
+              TotalBtcData={this.state.TotalBtcData}
+              btc_historical_data={this.state.btc_historical_data}
+              links={this.state.linklinks}
+              btclinks={this.state.btclinks}
+              ethlinks={this.state.ethlinks}
+              linklinks={this.state.linklinks}
+              />}
+            /> */}
 
         <Route exact path="/" render={props => 
-              <Coininfo {...this.props} 
+              <Coininfo {...props} 
               btcListingData={this.state.btcListingData}
               btcListingUSD={this.state.btcListingUSD}
               btcListingUSDPrice={this.state.btcListingUSDPrice}
@@ -224,7 +269,7 @@ componentDidMount = () => {
             />
 
 <Route path="/more-info-btc" render={props => 
-              <Btcinfo {...this.props} 
+              <Btcinfo {...props} 
               btcListingData={this.state.btcListingData}
               btcListingUSD={this.state.btcListingUSD}
               btcListingUSDPrice={this.state.btcListingUSDPrice}
@@ -251,7 +296,7 @@ componentDidMount = () => {
             />
 
 <Route path="/more-info-eth" render={props => 
-              <Ethinfo {...this.props} 
+              <Ethinfo {...props} 
               btcListingData={this.state.btcListingData}
               btcListingUSD={this.state.btcListingUSD}
               btcListingUSDPrice={this.state.btcListingUSDPrice}
@@ -278,7 +323,7 @@ componentDidMount = () => {
             />
 
 <Route path="/more-info-link" render={props => 
-              <Linkinfo {...this.props} 
+              <Linkinfo {...props} 
               btcListingData={this.state.btcListingData}
               btcListingUSD={this.state.btcListingUSD}
               btcListingUSDPrice={this.state.btcListingUSDPrice}
@@ -303,6 +348,35 @@ componentDidMount = () => {
               linklinks={this.state.linklinks}
               />}
             />
+
+<Route path="/coin-details/:coininfo" render={props => 
+              <CoinDetails {...props} 
+              // {...this.state}
+              btcListingData={this.state.btcListingData}
+              btcListingUSD={this.state.btcListingUSD}
+              btcListingUSDPrice={this.state.btcListingUSDPrice}
+              btcListingUSDPrice24h={this.state.btcListingUSDPrice24h}
+              ethListingData={this.state.ethListingData}
+              ethListingUSD={this.state.ethListingUSD}
+              ethListingUSDPrice={this.state.ethListingUSDPrice}
+              ethListingUSDPrice24h={this.state.ethListingUSDPrice24h}
+              linkListingData={this.state.linkListingData}
+              linkListingUSD={this.state.linkListingUSD}
+              linkListingUSDPrice={this.state.linkListingUSDPrice}
+              linkListingUSDPrice24h={this.state.linkListingUSDPrice24h}
+              TotalCoinData={this.state.TotalCoinData}
+              TotalMarketCap={this.state.TotalCoinData}
+              TotalCryptoCurrencies={this.state.TotalCryptoCurrencies}
+              last_updated={this.state.last_updated}
+              TotalBtcData={this.state.TotalBtcData}
+              btc_historical_data={this.state.btc_historical_data}
+              links={this.state.linklinks}
+              btclinks={this.state.btclinks}
+              ethlinks={this.state.ethlinks}
+              linklinks={this.state.linklinks}
+              />}
+              
+            />
                 
         </Switch>
 
@@ -312,3 +386,5 @@ componentDidMount = () => {
 }
 
 export default App;
+
+

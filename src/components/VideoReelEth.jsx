@@ -11,14 +11,22 @@ const VideoReelEth = (props) => {
 
 
   const showVids = () =>{
-
-    let links = props.ethlinks
-    
-    return links.map(eachVid  =>{
+    let links = props.newlinks 
+    return links.map( eachVid =>{
         return (
-                <a href={'https://www.youtube.com/watch?v=' + eachVid.id.videoId}> <img id="video_thumb" src={eachVid.snippet.thumbnails.default.url} alt="the Vid"/> </a>
-            
-        );
+            <div className="card" id="video-card">
+            <div key={eachVid.id.videoId} id="video-style">
+                <h2 id="video-links">
+                    {eachVid.snippet.title}
+                </h2>
+                {/* <h4>{eachVid.snippet.description}</h4> */}
+               {/* <a href={'https://www.youtube.com/watch?v=' + eachVid.id.videoId}> <img id="video_thumb" src={eachVid.snippet.thumbnails.medium.url} alt="the Vid"/> </a> */}
+               <iframe width="420" height="315"
+                src={"https://www.youtube.com/embed/" + eachVid.id.videoId}>
+                </iframe>
+            </div>
+            </div>
+        )
     })
     }
 

@@ -1,21 +1,62 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {Link} from 'react-router-dom';
+import axios from 'axios';
 
 import VideoList from './VideoList'
 import Videoreel from './Videoreel'
 import VideoReelEth from './VideoReelEth'
 import VideoReelLink from './VideoReelLink'
-import SearchBar from './SearchBar'
+
+import Btcinfo from './Btcinfo'
+import SearchBar from './SearchBar';
 
 
 
+var api_key = {
+    // key: "ca1a9c15-b98e-41dd-a03d-45b279920f4d",
+    // youtube: "AIzaSyBFh1Qe1Yc0dkpce-A_ZBWvbPa_z6-VpIA",
+    // youtube: "AIzaSyA5WEFxIq4Y5pbiifVB3VQVIlAptmMfgTw"
+    youtube: "AIzaSyDIMSwQ_L5FJFqk9RrMZpxvwAdMzaUxqKA"
+    // youtube: "AIzaSyDfAZ83X5Ro-JyiQlO7i8lFUVf1kuSAzsg"
+    // youtube: "AIzaSyCjERn1sw_DCK_gFleL4Ths9ECwqtXxMGA"
+  }
+
+  let state = {
+      newlinks: [],
+      ready: false,
+
+  }
 
 
+function CoinDetails(props) {
 
-function Ethinfo(props) {
+    const [newlinks, setNewlinks] = useState([]);
+    const [ready, setReady] = useState(false);
+
+    console.log(props)
+    console.log(props.match.params.coininfo)
+    const coinName = props.match.params.coininfo
+    let res = props.TotalBtcData.find(coins => {
+        return coins.name.toLowerCase() === coinName.toLowerCase()
+        
+    })
+    console.log(res)
+
+    
+        axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&order=relevance&q=${coinName}&type=video&videoEmbeddable=true&key=` + api_key.youtube)
+        .then(response => {
+          console.log(response.data.items)
+          setNewlinks(response.data.items)
+        })
+        .catch(err => console.log(err))   
+      
+    
+
+      
+
+
     return (
         
-
         <div className="main-content-inner">
                 {/* <!-- sales report area start --> */}
                 <div className="sales-report-area mt-5 mb-5">
@@ -64,20 +105,6 @@ function Ethinfo(props) {
                                         <span>{props.ethListingUSDPrice24h}%</span>
                                     </div>
                                 </div>
-
-                                <div className="s-report-title d-flex justify-content-between">
-                                       
-                                       <p id="box-details">Rank</p> <p id="box-details">{props.ethListingData.cmc_rank}</p>
-                                </div>
-                                <div className="s-report-title d-flex justify-content-between">
-                                       <p id="box-details">Circulating Supply</p> <p id="box-details">{props.ethListingData.circulating_supply}</p>
-                                </div>
-                                <div className="s-report-title d-flex justify-content-between">
-                                        <p id="box-details">Max Supply</p> <p id="box-details">{props.ethListingData.total_supply}</p>
-                                </div>
-                                <div className="s-report-title d-flex justify-content-between">
-                                        <p id="box-details">Market Symbol</p> <p id="box-details">{props.ethListingData.symbol}</p>
-                                </div>
                                 {/* <canvas id="coin_sales2" height="100"></canvas> */}
                                 {/* <div id="video-list">
                                 <VideoReelEth id="video-list"{...props}
@@ -88,7 +115,7 @@ function Ethinfo(props) {
                                  />
                                  </div> */}
                                  <div className="button-wrap">
-                                 <Link to="/"> <button type="button" data-toggle="modal" data-target="#exampleModalCenter"  className="btn btn-flat btn-dark btn-lg btn-block"><h1 id="btn-white">Less Information</h1></button></Link>
+                                 <Link to="/more-info-eth"> <button type="button" data-toggle="modal" data-target="#exampleModalCenter"  className="btn btn-flat btn-dark btn-lg btn-block"><h1 id="btn-white">More Information</h1></button></Link>
                                             
                                  </div>
                             </div>
@@ -130,17 +157,19 @@ function Ethinfo(props) {
                         <div className="card">
                             <div className="card-body">
                                 <div className="d-flex justify-content-between align-items-center"  id="latest-vids">
-                                    <h4 className="header-title mb-0">Latest Ethereum Videos</h4>
+                                    <h4 className="header-title mb-0">Latest {coinName} Videos</h4>
                                     <div className="search-box pull-left">
-                                        {/* <form action="#">
+                                        {/* <form action="onSubmit">
                                             <input type="text" name="search" placeholder="Search..." required />
                                             <i className="ti-search"></i>
                                         </form> */}
                                         <SearchBar {...props}/>
                                     </div>
                                 </div>
-                                <VideoList {...props}
-                                    links={props.links}
+                                <VideoReelEth {...props} 
+                                    newlinks={newlinks}
+                                    filteredResults={state.filteredResults}
+
                                 />
                             </div>
                         </div>
@@ -151,11 +180,6 @@ function Ethinfo(props) {
                                 <h4 className="header-title mb-0">Market Info</h4>
                                 <div id="coin_distribution">
                                     <ul>
-                                        <li className="info-list">Ethereum Market Cap: ${props.ethListingUSD.market_cap}</li>
-                                        <li className="info-list">Percentage Change last 1h: {props.ethListingUSD.percent_change_1h}%</li>
-                                        <li className="info-list">Percentage Change last 24h: {props.ethListingUSD.percent_change_24h}%</li>
-                                        <li className="info-list">Percentage Change last 7d: {props.ethListingUSD.percent_change_7d}%</li>
-                                        <hr></hr>
                                         <li className="info-list">Total Amount of CryptoCurrecies: {props.TotalCoinData.total_cryptocurrencies}</li>
                                         <li className="info-list">Active CryptoCurrencies: {props.TotalMarketCap.active_cryptocurrencies}</li>
                                         <li className="info-list">Total Exchanges: {props.TotalCoinData.total_exchanges}</li>
@@ -170,7 +194,8 @@ function Ethinfo(props) {
                 </div>
                 
         </div>
-    );
+        
+    )
 }
 
-export default Ethinfo;
+export default CoinDetails;
