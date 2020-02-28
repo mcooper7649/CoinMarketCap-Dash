@@ -16,7 +16,12 @@ var api_key = {
   // youtube: "AIzaSyDIMSwQ_L5FJFqk9RrMZpxvwAdMzaUxqKA"
   // youtube: "AIzaSyDfAZ83X5Ro-JyiQlO7i8lFUVf1kuSAzsg"
   // youtube: "AIzaSyCjERn1sw_DCK_gFleL4Ths9ECwqtXxMGA"
+  youtube: "AIzaSyC4gCC2ggbf5vA3xcqj7l4HRfPI8vwBCOI"
 }
+
+
+// open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security
+// RUN THIS COMMAND FROM TERMINAL ON MAC TO BYPASS CORS ISSUES
 
 
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 
@@ -13,17 +13,19 @@ import SearchBar from './SearchBar';
 
 
 var api_key = {
-    // key: "ca1a9c15-b98e-41dd-a03d-45b279920f4d",
+    key: "ca1a9c15-b98e-41dd-a03d-45b279920f4d",
     // youtube: "AIzaSyBFh1Qe1Yc0dkpce-A_ZBWvbPa_z6-VpIA",
     // youtube: "AIzaSyA5WEFxIq4Y5pbiifVB3VQVIlAptmMfgTw"
-    youtube: "AIzaSyDIMSwQ_L5FJFqk9RrMZpxvwAdMzaUxqKA"
+    // youtube: "AIzaSyDIMSwQ_L5FJFqk9RrMZpxvwAdMzaUxqKA"
     // youtube: "AIzaSyDfAZ83X5Ro-JyiQlO7i8lFUVf1kuSAzsg"
     // youtube: "AIzaSyCjERn1sw_DCK_gFleL4Ths9ECwqtXxMGA"
+    youtube: "AIzaSyC4gCC2ggbf5vA3xcqj7l4HRfPI8vwBCOI"
   }
 
   let state = {
       newlinks: [],
       ready: false,
+      newQuery: []
 
   }
 
@@ -31,25 +33,50 @@ var api_key = {
 function CoinDetails(props) {
 
     const [newlinks, setNewlinks] = useState([]);
+    const [newQuery, setNewQuery] = useState([]);
     const [ready, setReady] = useState(false);
 
     console.log(props)
-    console.log(props.match.params.coininfo)
+    // console.log(props.match.params.coininfo)
     const coinName = props.match.params.coininfo
-    let res = props.TotalBtcData.find(coins => {
+    const res = props.TotalBtcData.find(coins => {
         return coins.name.toLowerCase() === coinName.toLowerCase()
         
     })
-    console.log(res)
+    // console.log(res)
 
     
+    
+    useEffect(() =>{
+
+    
+     
         axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&order=relevance&q=${coinName}&type=video&videoEmbeddable=true&key=` + api_key.youtube)
         .then(response => {
-          console.log(response.data.items)
+        //   console.log(res)
           setNewlinks(response.data.items)
         })
-        .catch(err => console.log(err))   
+        .catch(err => console.log(err)) 
+        
+        // axios.get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?CMC_PRO_API_KEY=' + api_key.key)
+        // .then(response => {
+        //      console.log(res)
+        //   setNewQuery (response.data.data.find( ({ name }) => name === {coinName} ))
+        //      console.log(newQuery)
+        //     })
+        //     .catch(err => console.log(err)) 
+            
+
+    
+}, [])
+
       
+
+    
+        
+
+      
+
     
 
       
@@ -76,7 +103,7 @@ function CoinDetails(props) {
                                     </div>
                                 </div>
                                 
-                                
+                                {/* <h1>{res.data}</h1> */}
                                 {/* <canvas id="coin_sales1" height="100">{props.links}</canvas> */}
                                 {/* <div id="video-list">
                                 <Videoreel id="video-list"{...props}
@@ -180,6 +207,11 @@ function CoinDetails(props) {
                                 <h4 className="header-title mb-0">Market Info</h4>
                                 <div id="coin_distribution">
                                     <ul>
+                                        <li className="info-list">Total Market Cap: ${props.ethListingUSD.market_cap}</li>
+                                        <li className="info-list">Percentage Change last 1h: {props.ethListingUSD.percent_change_1h}%</li>
+                                        <li className="info-list">Percentage Change last 24h: {props.ethListingUSD.percent_change_24h}%</li>
+                                        <li className="info-list">Percentage Change last 7d: {props.ethListingUSD.percent_change_7d}%</li>
+                                        <hr></hr>
                                         <li className="info-list">Total Amount of CryptoCurrecies: {props.TotalCoinData.total_cryptocurrencies}</li>
                                         <li className="info-list">Active CryptoCurrencies: {props.TotalMarketCap.active_cryptocurrencies}</li>
                                         <li className="info-list">Total Exchanges: {props.TotalCoinData.total_exchanges}</li>

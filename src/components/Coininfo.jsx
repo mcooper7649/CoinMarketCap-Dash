@@ -15,6 +15,7 @@ import SearchBar from './SearchBar';
 
 function Coininfo(props) {
     console.log(props)
+ 
     return (
         
 

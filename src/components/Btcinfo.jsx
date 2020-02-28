@@ -5,6 +5,7 @@ import VideoList from './VideoList'
 import Videoreel from './Videoreel'
 import VideoReelEth from './VideoReelEth'
 import VideoReelLink from './VideoReelLink'
+import SearchBar from './SearchBar'
 
 
 
@@ -135,10 +136,12 @@ function Btcinfo(props) {
                                 <div className="d-flex justify-content-between align-items-center"  id="latest-vids">
                                     <h4 className="header-title mb-0">Latest Bitcoin Videos</h4>
                                     <div className="search-box pull-left">
-                                        <form action="#">
+                                        {/* <form action="#">
                                             <input type="text" name="search" placeholder="Search..." required />
                                             <i className="ti-search"></i>
-                                        </form>
+                                        </form> */}
+                                        <SearchBar {...props}
+                                        />
                                     </div>
                                 </div>
                                 <VideoList {...props}
