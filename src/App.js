@@ -75,7 +75,7 @@ class App extends Component {
 
 
 getBtcListingInfo = () => {
-  axios.get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?CMC_PRO_API_KEY=' + api_key.key)
+  axios.get('https://cors-anywhere.herokuapp.com/https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?CMC_PRO_API_KEY=' + api_key.key)
   .then(response => {
     console.log(response.data.data)
     
@@ -112,7 +112,7 @@ getBtcListingInfo = () => {
 
 
   getMarketInfo = () => {
-    axios.get('https://pro-api.coinmarketcap.com/v1/global-metrics/quotes/latest?CMC_PRO_API_KEY=' + api_key.key)
+    axios.get('https://cors-anywhere.herokuapp.com/https://pro-api.coinmarketcap.com/v1/global-metrics/quotes/latest?CMC_PRO_API_KEY=' + api_key.key)
     .then(response => {
       // console.log(response.data)
       this.setState({
@@ -127,7 +127,7 @@ getBtcListingInfo = () => {
 }
 
 getYoutubeInfo = () => {
-  axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&order=relevance&q=blockchain&type=video&videoEmbeddable=true&key=` + api_key.youtube)
+  axios.get(`https://cors-anywhere.herokuapp.com/https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&order=relevance&q=blockchain&type=video&videoEmbeddable=true&key=` + api_key.youtube)
   .then(response => {
     // console.log(response.data.items)
     this.setState({
@@ -139,7 +139,7 @@ getYoutubeInfo = () => {
 }
 
 getYoutubeBtc = () => {
-  axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&order=relevance&q=bitcoin&type=video&videoEmbeddable=true&key=` + api_key.youtube)
+  axios.get(`https://cors-anywhere.herokuapp.com/https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&order=relevance&q=bitcoin&type=video&videoEmbeddable=true&key=` + api_key.youtube)
   .then(response => {
     // console.log(response.data.items)
     this.setState({
@@ -151,7 +151,7 @@ getYoutubeBtc = () => {
 }
 
 getYoutubeEth = () => {
-  axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&order=relevance&q=ethereum&type=video&videoEmbeddable=true&key=` + api_key.youtube)
+  axios.get(`https://cors-anywhere.herokuapp.com/https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&order=relevance&q=ethereum&type=video&videoEmbeddable=true&key=` + api_key.youtube)
   .then(response => {
     // console.log(response.data.items)
     this.setState({
@@ -163,7 +163,7 @@ getYoutubeEth = () => {
 }
 
 getYoutubeLink = () => {
-  axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&order=relevance&q=chainlink&type=video&videoEmbeddable=true&key=` + api_key.youtube)
+  axios.get(`https://cors-anywhere.herokuapp.com/https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&order=relevance&q=chainlink&type=video&videoEmbeddable=true&key=` + api_key.youtube)
   .then(response => {
     // console.log(response.data.items)
     this.setState({

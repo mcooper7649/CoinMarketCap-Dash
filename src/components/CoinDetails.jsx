@@ -51,7 +51,7 @@ function CoinDetails(props) {
 
     
      
-        axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&order=relevance&q=${coinName}&type=video&videoEmbeddable=true&key=` + api_key.youtube)
+        axios.get(`https://cors-anywhere.herokuapp.com/https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&order=relevance&q=${coinName}&type=video&videoEmbeddable=true&key=` + api_key.youtube)
         .then(response => {
         //   console.log(res)
           setNewlinks(response.data.items)
