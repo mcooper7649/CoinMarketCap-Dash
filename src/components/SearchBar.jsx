@@ -22,7 +22,7 @@ class SearchBar extends Component {
     }
     
     getSearchInfo = () => {
-        axios.get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/map?CMC_PRO_API_KEY=' + api_key.key)
+        axios.get('https://cors-anywhere.herokuapp.com/https://pro-api.coinmarketcap.com/v1/cryptocurrency/map?CMC_PRO_API_KEY=' + api_key.key)
         .then(response => {
           console.log(response.data.data)
           

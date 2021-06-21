@@ -6,18 +6,22 @@ import Btcinfo from './components/Btcinfo'
 import Ethinfo from './components/Ethinfo'
 import Linkinfo from './components/Linkinfo'
 import CoinDetails from './components/CoinDetails';
+
+
 // import Overlay from './components/Overlay';
 // import metismenu from 'metismenujs'
 
-var api_key = {
-  key: "ca1a9c15-b98e-41dd-a03d-45b279920f4d",
-  youtube: "AIzaSyBFh1Qe1Yc0dkpce-A_ZBWvbPa_z6-VpIA",
-  // youtube: "AIzaSyA5WEFxIq4Y5pbiifVB3VQVIlAptmMfgTw"
-  // youtube: "AIzaSyDIMSwQ_L5FJFqk9RrMZpxvwAdMzaUxqKA"
-  // youtube: "AIzaSyDfAZ83X5Ro-JyiQlO7i8lFUVf1kuSAzsg"
-  // youtube: "AIzaSyCjERn1sw_DCK_gFleL4Ths9ECwqtXxMGA"
-  youtube: "AIzaSyC4gCC2ggbf5vA3xcqj7l4HRfPI8vwBCOI"
-}
+// var api_key = {
+//   key: "ca1a9c15-b98e-41dd-a03d-45b279920f4d",
+//   youtube: "AIzaSyBFh1Qe1Yc0dkpce-A_ZBWvbPa_z6-VpIA",
+//   // youtube: "AIzaSyA5WEFxIq4Y5pbiifVB3VQVIlAptmMfgTw"
+//   // youtube: "AIzaSyDIMSwQ_L5FJFqk9RrMZpxvwAdMzaUxqKA"
+//   // youtube: "AIzaSyDfAZ83X5Ro-JyiQlO7i8lFUVf1kuSAzsg"
+//   // youtube: "AIzaSyCjERn1sw_DCK_gFleL4Ths9ECwqtXxMGA"
+//   youtube: "AIzaSyC4gCC2ggbf5vA3xcqj7l4HRfPI8vwBCOI"
+// }
+
+const { REACT_APP_YOUTUBE_API_KEY, REACT_APP_CMC_API_KEY} = process.env;
 
 
 // open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security
@@ -60,7 +64,7 @@ class App extends Component {
   
 
   getBtcInfo = () => {
-    axios.get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/map?CMC_PRO_API_KEY=' + api_key.key)
+    axios.get('https://cors-anywhere.herokuapp.com/https://pro-api.coinmarketcap.com/v1/cryptocurrency/map?CMC_PRO_API_KEY=' + process.env.REACT_APP_CMC_API_KEY)
     .then(response => {
       // console.log(response.data.data)
       this.setState({
@@ -75,7 +79,7 @@ class App extends Component {
 
 
 getBtcListingInfo = () => {
-  axios.get('https://cors-anywhere.herokuapp.com/https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?CMC_PRO_API_KEY=' + api_key.key)
+  axios.get('https://cors-anywhere.herokuapp.com/https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?CMC_PRO_API_KEY=' + process.env.REACT_APP_CMC_API_KEY)
   .then(response => {
     console.log(response.data.data)
     
@@ -112,7 +116,7 @@ getBtcListingInfo = () => {
 
 
   getMarketInfo = () => {
-    axios.get('https://cors-anywhere.herokuapp.com/https://pro-api.coinmarketcap.com/v1/global-metrics/quotes/latest?CMC_PRO_API_KEY=' + api_key.key)
+    axios.get('https://cors-anywhere.herokuapp.com/https://pro-api.coinmarketcap.com/v1/global-metrics/quotes/latest?CMC_PRO_API_KEY=' + process.env.REACT_APP_CMC_API_KEY)
     .then(response => {
       // console.log(response.data)
       this.setState({
@@ -127,7 +131,7 @@ getBtcListingInfo = () => {
 }
 
 getYoutubeInfo = () => {
-  axios.get(`https://cors-anywhere.herokuapp.com/https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&order=relevance&q=blockchain&type=video&videoEmbeddable=true&key=` + api_key.youtube)
+  axios.get(`https://cors-anywhere.herokuapp.com/https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&order=relevance&q=blockchain&type=video&videoEmbeddable=true&key=` + process.env.REACT_APP_YOUTUBE_API_KEY)
   .then(response => {
     // console.log(response.data.items)
     this.setState({
@@ -139,7 +143,7 @@ getYoutubeInfo = () => {
 }
 
 getYoutubeBtc = () => {
-  axios.get(`https://cors-anywhere.herokuapp.com/https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&order=relevance&q=bitcoin&type=video&videoEmbeddable=true&key=` + api_key.youtube)
+  axios.get(`https://cors-anywhere.herokuapp.com/https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&order=relevance&q=bitcoin&type=video&videoEmbeddable=true&key=` + process.env.REACT_APP_YOUTUBE_API_KEY)
   .then(response => {
     // console.log(response.data.items)
     this.setState({
@@ -151,7 +155,7 @@ getYoutubeBtc = () => {
 }
 
 getYoutubeEth = () => {
-  axios.get(`https://cors-anywhere.herokuapp.com/https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&order=relevance&q=ethereum&type=video&videoEmbeddable=true&key=` + api_key.youtube)
+  axios.get(`https://cors-anywhere.herokuapp.com/https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&order=relevance&q=ethereum&type=video&videoEmbeddable=true&key=` + process.env.REACT_APP_YOUTUBE_API_KEY)
   .then(response => {
     // console.log(response.data.items)
     this.setState({
@@ -163,7 +167,7 @@ getYoutubeEth = () => {
 }
 
 getYoutubeLink = () => {
-  axios.get(`https://cors-anywhere.herokuapp.com/https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&order=relevance&q=chainlink&type=video&videoEmbeddable=true&key=` + api_key.youtube)
+  axios.get(`https://cors-anywhere.herokuapp.com/https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&order=relevance&q=chainlink&type=video&videoEmbeddable=true&key=` + process.env.REACT_APP_YOUTUBE_API_KEY)
   .then(response => {
     // console.log(response.data.items)
     this.setState({
@@ -215,7 +219,7 @@ componentDidMount = () => {
       <div>
       {/* <Overlay /> */}
       {/* <button onClick={this.signUpLogIn}>Sign Up / Log in</button> */}
-       
+      
       {/* <Overlay /> */}
       
       <Switch>
