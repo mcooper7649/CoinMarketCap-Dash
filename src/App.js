@@ -21,7 +21,7 @@ import CoinDetails from './components/CoinDetails';
 //   youtube: "AIzaSyC4gCC2ggbf5vA3xcqj7l4HRfPI8vwBCOI"
 // }
 
-const { REACT_APP_YOUTUBE_API_KEY, REACT_APP_CMC_API_KEY} = process.env;
+// const { REACT_APP_YOUTUBE_API_KEY, REACT_APP_CMC_API_KEY} = process.env;
 
 
 // open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security
