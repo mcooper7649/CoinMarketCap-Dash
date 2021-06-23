@@ -21,7 +21,7 @@ const VideoReelEth = (props) => {
                 </h2>
                 {/* <h4>{eachVid.snippet.description}</h4> */}
                {/* <a href={'https://www.youtube.com/watch?v=' + eachVid.id.videoId}> <img id="video_thumb" src={eachVid.snippet.thumbnails.medium.url} alt="the Vid"/> </a> */}
-               <iframe width="420" height="315"
+               <iframe width="420" height="315" title={eachVid.id.title}
                 src={"https://www.youtube.com/embed/" + eachVid.id.videoId}>
                 </iframe>
             </div>

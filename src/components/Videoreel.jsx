@@ -17,11 +17,11 @@ const Videoreel = (props) => {
         return (
         
             <div>
-                <iframe width="420" height="315"
+                <iframe width="420" height="315" title={eachVid.id.title}
                 src={"https://www.youtube.com/embed/" + eachVid.id.videoId}>
                 </iframe>
                 {/* <a href={'https://www.youtube.com/watch?v=' + eachVid.id.videoId}> <img id="video_thumb" src={eachVid.snippet.thumbnails.default.url} alt="the Vid" /> </a> */}
-                </div>
+            </div>
         );
     })
     }

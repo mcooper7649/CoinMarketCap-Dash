@@ -2,9 +2,9 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 import VideoList from './VideoList'
-import Videoreel from './Videoreel'
-import VideoReelEth from './VideoReelEth'
-import VideoReelLink from './VideoReelLink'
+// import Videoreel from './Videoreel'
+// import VideoReelEth from './VideoReelEth'
+// import VideoReelLink from './VideoReelLink'
 import SearchBar from './SearchBar'
 
 

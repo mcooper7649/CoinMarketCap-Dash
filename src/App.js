@@ -60,6 +60,7 @@ class App extends Component {
     linklinks: []
 
   }
+  
 
   
 
@@ -79,6 +80,7 @@ class App extends Component {
 
 
 getBtcListingInfo = () => {
+  console.log(process.env)
   axios.get('https://cors-anywhere.herokuapp.com/https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?CMC_PRO_API_KEY=' + process.env.REACT_APP_CMC_API_KEY)
   .then(response => {
     console.log(response.data.data)

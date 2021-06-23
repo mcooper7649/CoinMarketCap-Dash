@@ -2,25 +2,14 @@ import React, { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 
-import VideoList from './VideoList'
-import Videoreel from './Videoreel'
+// import VideoList from './VideoList'
+// import Videoreel from './Videoreel'
 import VideoReelEth from './VideoReelEth'
-import VideoReelLink from './VideoReelLink'
+// import VideoReelLink from './VideoReelLink'
 
-import Btcinfo from './Btcinfo'
+// import Btcinfo from './Btcinfo'
 import SearchBar from './SearchBar';
 
-
-
-var api_key = {
-    key: "ca1a9c15-b98e-41dd-a03d-45b279920f4d",
-    // youtube: "AIzaSyBFh1Qe1Yc0dkpce-A_ZBWvbPa_z6-VpIA",
-    // youtube: "AIzaSyA5WEFxIq4Y5pbiifVB3VQVIlAptmMfgTw"
-    // youtube: "AIzaSyDIMSwQ_L5FJFqk9RrMZpxvwAdMzaUxqKA"
-    // youtube: "AIzaSyDfAZ83X5Ro-JyiQlO7i8lFUVf1kuSAzsg"
-    // youtube: "AIzaSyCjERn1sw_DCK_gFleL4Ths9ECwqtXxMGA"
-    youtube: "AIzaSyC4gCC2ggbf5vA3xcqj7l4HRfPI8vwBCOI"
-  }
 
   let state = {
       newlinks: [],
@@ -33,27 +22,23 @@ var api_key = {
 function CoinDetails(props) {
 
     const [newlinks, setNewlinks] = useState([]);
-    const [newQuery, setNewQuery] = useState([]);
-    const [ready, setReady] = useState(false);
+    // const [newQuery, setNewQuery] = useState([]);
+    // const [ready, setReady] = useState(false);
 
     console.log(props)
     // console.log(props.match.params.coininfo)
     const coinName = props.match.params.coininfo
-    const res = props.TotalBtcData.find(coins => {
-        return coins.name.toLowerCase() === coinName.toLowerCase()
+    // const res = props.TotalBtcData.find(coins => {
+    //     return coins.name.toLowerCase() === coinName.toLowerCase()
         
-    })
+    // })
     // console.log(res)
 
     
     
     useEffect(() =>{
-
-    
-     
-        axios.get(`https://cors-anywhere.herokuapp.com/https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&order=relevance&q=${coinName}&type=video&videoEmbeddable=true&key=` + api_key.youtube)
+        axios.get(`https://cors-anywhere.herokuapp.com/https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&order=relevance&q=${coinName}&type=video&videoEmbeddable=true&key=` + process.env.REACT_APP_YOUTUBE_API_KEY)
         .then(response => {
-        //   console.log(res)
           setNewlinks(response.data.items)
         })
         .catch(err => console.log(err)) 
@@ -68,7 +53,7 @@ function CoinDetails(props) {
             
 
     
-}, [])
+}, )
 
       
 

@@ -1,17 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Suggestions from './Suggestions'
-import CoinDetails from './CoinDetails'
-import { Link, Route } from 'react-router-dom'
+// import Suggestions from './Suggestions'
+// import CoinDetails from './CoinDetails'
+// import { Link, Route } from 'react-router-dom'
 
-var api_key = {
-    key: "ca1a9c15-b98e-41dd-a03d-45b279920f4d",
-    youtube: "AIzaSyBFh1Qe1Yc0dkpce-A_ZBWvbPa_z6-VpIA",
-    // youtube: "AIzaSyA5WEFxIq4Y5pbiifVB3VQVIlAptmMfgTw"
-    // youtube: "AIzaSyDIMSwQ_L5FJFqk9RrMZpxvwAdMzaUxqKA"
-    // youtube: "AIzaSyDfAZ83X5Ro-JyiQlO7i8lFUVf1kuSAzsg"
-    // youtube: "AIzaSyCjERn1sw_DCK_gFleL4Ths9ECwqtXxMGA"
-  }
+
 
 class SearchBar extends Component {
     state = {
@@ -22,7 +15,7 @@ class SearchBar extends Component {
     }
     
     getSearchInfo = () => {
-        axios.get('https://cors-anywhere.herokuapp.com/https://pro-api.coinmarketcap.com/v1/cryptocurrency/map?CMC_PRO_API_KEY=' + api_key.key)
+        axios.get('https://cors-anywhere.herokuapp.com/https://pro-api.coinmarketcap.com/v1/cryptocurrency/map?CMC_PRO_API_KEY=' + process.env.REACT_APP_CMC_API_KEY)
         .then(response => {
           console.log(response.data.data)
           
@@ -116,18 +109,3 @@ class SearchBar extends Component {
 
 
 export default SearchBar;
-
-{/* <Route path="/coin-details/:coininfo" render={props => 
-<CoinDetails {...props}
-filteredResults ={this.state.filteredResults}
-/>}
-/> */}
-
-
-
-
-            // <form action="onSubmit">
-            // <input onChange={this.query} type="text" className="input search-bar" name="search" placeholder="Search for a Coin..." value=""></input>
-            // <i className="ti-search"></i>
-            // </form>
-            // <p>{this.state.query}</p>
